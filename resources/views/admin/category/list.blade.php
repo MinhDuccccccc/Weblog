@@ -13,6 +13,11 @@
                     <small>List</small>
                 </h1>
             </div>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>
+            @endif
             <!-- /.col-lg-12 -->
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
@@ -29,8 +34,8 @@
                     <tr class="odd gradeX" align="center">
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('admin.category.delete', $category -> id)}}"> Delete</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.category.edit', $category -> id)}}">Edit</a></td>
                     </tr>
                     @endforeach
                 </tbody>
