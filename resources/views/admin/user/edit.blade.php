@@ -1,58 +1,64 @@
 @extends('admin.layout.master')
 @section('content')
 <div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Category
-                    <small>Add</small>
-                </h1>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">User
+                            <small>Edit</small>
+                        </h1>
+                    </div>
+                    @if(count($errors))
+                        <div class="alert alert-danger">
+                            @foreach($errors->all() as $err)
+                                {{$err}}
+                            @endforeach
+                        </div>
+                    @endif
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                    @endif
+                    <!-- /.col-lg-12 -->
+                    <div class="col-lg-7" style="padding-bottom:120px">
+                        <form action="{{route('admin.user.update', $user->id)}}" method="POST">
+                            @csrf
+                            @method('put')
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" value="{{$user->name}}" name="name" placeholder="Please Enter Name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="email" value="{{$user->email}}" placeholder="Please Enter Email" readonly/>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" name="password" type="password" placeholder="Please Enter Password" />
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm</label>
+                                <input class="form-control" name="confirm" type="password" placeholder="Please Confirm" />
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <label class="radio-inline">
+                                    <input name="is_admin" value="0" @if(!$user->is_admin) checked @endif type="radio">User
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="is_admin" value="1" @if($user->is_admin) checked @endif type="radio">Admin
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-default">Update</button>
+                        <form>
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <!-- /.col-lg-12 -->
-            <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label>Category Parent</label>
-                        <select class="form-control">
-                            <option value="0">Please Choose Category</option>
-                            <option value="">Tin Tức</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Category Name</label>
-                        <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" />
-                    </div>
-                    <div class="form-group">
-                        <label>Category Order</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter Category Order" />
-                    </div>
-                    <div class="form-group">
-                        <label>Category Keywords</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
-                    </div>
-                    <div class="form-group">
-                        <label>Category Description</label>
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Category Status</label>
-                        <label class="radio-inline">
-                            <input name="rdoStatus" value="1" checked="" type="radio">Visible
-                        </label>
-                        <label class="radio-inline">
-                            <input name="rdoStatus" value="2" type="radio">Invisible
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Category Add</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
-                <form>
-            </div>
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
+        <!-- /#page-wrapper -->
 
-</div>
+    </div>
 @endsection

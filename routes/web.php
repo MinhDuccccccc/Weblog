@@ -68,31 +68,31 @@ Route::prefix('admin')->group(function() {
 
   Route::prefix('contact')->group(function(){
 
-    Route::get('', [CategoryController::class, 'index'])
+    Route::get('', [ContactController::class, 'index'])
     ->name('admin.contact.index');
 
-    Route::get('delete/{id}', [CategoryController::class, 'delete'])
+    Route::get('delete/{id}', [ContactController::class, 'delete'])
     ->name('admin.contact.delete');
   });
 
   Route::prefix('user')->group(function(){
 
-    Route::get('', [CategoryController::class, 'index'])
+    Route::get('', [UserController::class, 'index'])
     ->name('admin.user.index');
 
-    Route::get('create', [CategoryController::class, 'create'])
+    Route::get('create', [UserController::class, 'create'])
     ->name('admin.user.create');
 
-    Route::post('store', [CategoryController::class, 'store'])
+    Route::post('store', [UserController::class, 'store'])
     ->name('admin.user.store');
 
-    Route::get('edit/{id}', [CategoryController::class, 'edit'])
+    Route::get('edit/{id}', [UserController::class, 'edit'])
     ->name('admin.user.edit');
 
-    Route::put('update/{id}', [CategoryController::class, 'update'])
+    Route::put('update/{id}', [UserController::class, 'update'])
     ->name('admin.user.update');
 
-    Route::get('delete/{id}', [CategoryController::class, 'delete'])
+    Route::get('delete/{id}', [UserController::class, 'delete'])
     ->name('admin.user.delete');
   });
 });
