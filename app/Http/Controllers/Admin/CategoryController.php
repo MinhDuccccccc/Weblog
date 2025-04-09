@@ -64,7 +64,7 @@ class CategoryController extends Controller
           $checkSlug = Category::where('slug', $slug)-> first();
 
           while($checkSlug){
-              $slug = $checkSlug->slug . Str::random(2);
+              $slug = $checkSlug->slug ."-". Str::random(2);
           }
 
           Category::where('id', $id)->update([
