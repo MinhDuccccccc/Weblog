@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Web\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,24 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->group(function(){
+  Route::get('login',[AuthController::class,'login'])
+  ->name('admin.auth.login');
+   
+Route::post('login', [AuthController::class,'checkLogin'])
+->name('admin.auth.check-login');
+});
+
+
+
+Route::prefix('admin')->middleware('admin.login')->group(function() {
+  Route::get('logout', [AuthController::class,'logout'])
+  ->name('admin.logout'); 
+  Route::get('profile',[AuthController::class,'profile'])
+  ->name('admin.profile.index');
+  Route::put('profile',[AuthController::class,'updateProfile'])
+  ->name('admin.profile.update');
+
 
   Route::prefix('category')->group(function(){
 
@@ -96,3 +115,15 @@ Route::prefix('admin')->group(function() {
     ->name('admin.user.delete');
   });
 });
+
+Route::get('/', [WebController::class, 'home']);
+
+Route::get('category', [WebController::class, 'category']);
+    
+Route::get('category/{slug}',[WebController::class, 'categorySlug']);
+
+Route::get('post/{slug}', [WebController::class, 'post']);
+
+Route::get('contact', [WebController::class, 'contact']);
+
+Route::post('contact', [WebController::class, 'sendContact']);
