@@ -120,10 +120,10 @@ Route::get('/', [WebController::class, 'home']);
 
 Route::get('category', [WebController::class, 'category']);
     
-Route::get('category/{slug}',[WebController::class, 'categorySlug']);
-
-Route::get('post/{slug}', [WebController::class, 'post']);
-
+Route::get('category/{slug}',[WebController::class, 'categorySlug'])
+  -> name('web.category');
+Route::get('post/{slug}', [WebController::class, 'post'])
+  -> name('web.post');
 Route::get('contact', [WebController::class, 'contact']);
 
 Route::post('contact', [WebController::class, 'sendContact']);

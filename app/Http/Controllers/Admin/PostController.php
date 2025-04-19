@@ -30,10 +30,10 @@ class PostController extends Controller
       $this->validate($request,
       [
         'title'=>'required',
-         'description'=>'required',
-          'content'=>'required',
-           'image'=>'required',
-            'category_id'=>'required',
+        'description'=>'required',
+        'content'=>'required',
+        'image'=>'required',
+        'category_id'=>'required',
       ]
     );
         

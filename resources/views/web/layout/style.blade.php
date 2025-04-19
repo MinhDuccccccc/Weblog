@@ -12,7 +12,7 @@
     <link href="/web/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/web/style.css" rel="stylesheet">
+    <link href="/web/css/style.css" rel="stylesheet">
 
     <!-- Responsive styles for this template -->
     <link href="/web/css/responsive.css" rel="stylesheet">
