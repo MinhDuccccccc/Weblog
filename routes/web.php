@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\AuthController ;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Web\WebController;
+use App\Http\Controllers\Web\WebAuthController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -124,6 +126,15 @@ Route::get('category/{slug}',[WebController::class, 'categorySlug'])
   -> name('web.category');
 Route::get('post/{slug}', [WebController::class, 'post'])
   -> name('web.post');
-Route::get('contact', [WebController::class, 'contact']);
+  Route::post('post/comment/{id}', [WebController::class, 'comment'])
+  -> name('web.post.comment');
+Route::get('contact', [WebController::class, 'contact'])
+->name('web.contact');
+Route::post('contact', [WebController::class, 'sendContact'])
+->name('web.contact.store');
 
-Route::post('contact', [WebController::class, 'sendContact']);
+
+Route::get('login', [WebAuthController::class, 'formLogin']);
+Route::post('login', [WebAuthController::class, 'login'])
+->name('web.auth.login');
+Route::get('logout', [WebAuthController::class,'logout']);
