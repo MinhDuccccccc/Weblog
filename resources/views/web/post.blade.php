@@ -143,7 +143,7 @@
                 <div class="sidebar">
 
                     <div class="widget">
-                        <h2 class="widget-title">Trend Videos</h2>
+                        <h2 class="widget-title">Popular Posts</h2>
                         <div class="trend-videos">
                             @foreach($highlight as $item)
                                 <div class="blog-box">
