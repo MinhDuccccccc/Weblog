@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'id' => '3',
+                'id' => '1',
                 'name' => 'Admin',
-                'email' => 'admin@gmail.com',
+                'email' => 'admin2@gmail.com',
                 'password' => '$2y$12$nGB6TXDB5bTNRv3X5Rgv8exDXc.4uBQJA7bmSYeljH/oH75TQMWrG',
                 'is_admin' => '1',
                 'created_at' => '2025-04-10 05:02:10',
