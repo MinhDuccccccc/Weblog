@@ -22,7 +22,25 @@ class UsersTableSeeder extends Seeder
                 'is_admin' => '1',
                 'created_at' => '2025-04-10 05:02:10',
                 'updated_at' => '2025-04-10 05:02:10',
-            ]
+            ],
+            [
+                'id' => '3',
+                'name' => 'Nguyen',
+                'email' => 'Nguyen@gmail.com',
+                'password' => '$2y$12$nGB6TXDB5bTNRv3X5Rgv8exDXc.4uBQJA7bmSYeljH/oH75TQMWrG',
+                'is_admin' => '0',
+                'created_at' => '2025-04-10 05:02:10',
+                'updated_at' => '2025-04-10 05:02:10',
+            ],
+            [
+                'id' => '4',
+                'name' => 'Duc',
+                'email' => 'Duc@gmail.com',
+                'password' => '$2y$12$nGB6TXDB5bTNRv3X5Rgv8exDXc.4uBQJA7bmSYeljH/oH75TQMWrG',
+                'is_admin' => '0',
+                'created_at' => '2025-04-10 05:02:10',
+                'updated_at' => '2025-04-10 05:02:10',
+            ],
         ]);
     }
 }
