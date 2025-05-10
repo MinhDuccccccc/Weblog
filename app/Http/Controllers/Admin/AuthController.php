@@ -18,7 +18,8 @@ class AuthController extends Controller
             return redirect()->route('admin.post.index');
 
         }
-        return redirect('/')->with('error','Failed');
+        return redirect()->route('admin.auth.login')->with('error','Invalid email or password');
+
    }
    public function logout()
    {

@@ -18,7 +18,7 @@ class WebAuthController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             return redirect('/');
         }
-        return redirect()->route('admin.auth.login')->with('error','Failed');
+        return redirect()->route('web.auth.login')->with('error','Failed');
     }
     public function logout()
     {
