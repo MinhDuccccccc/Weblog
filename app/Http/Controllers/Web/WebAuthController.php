@@ -10,6 +10,9 @@ class WebAuthController extends Controller
 {
     public function formLogin()
     {
+        if (Auth::check()) {
+        return redirect('/');
+    }
         return view('web.auth.login');
     }
 

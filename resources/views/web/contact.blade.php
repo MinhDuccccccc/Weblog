@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="section wb">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-wrapper">
@@ -20,7 +20,7 @@
                             <p>Tech Blog is a personal blog for handcrafted, cameramade photography content, fashion styles from independent creatives around the world.</p>
            
                             <h4>How we help?</h4>
-                            <p>Etiam vulputate urna id libero auctor maximus. Nulla dignissim ligula diam, in sollicitudin ligula congue quis turpis dui urna nibhs. </p>
+                            <p>Contact us, we will help you resolve any questions about copyright, images and content.</p>
      
                             <h4>Pre-Sale Question</h4>
                             <p>Fusce dapibus nunc quis quam tempor vestibulum sit amet consequat enim. Pellentesque blandit hendrerit placerat. Integertis non.</p>

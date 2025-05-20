@@ -4,7 +4,7 @@
             <div class="col-lg-7">
                 <div class="widget">
                     <div class="footer-text text-left">
-                        <a href="index.html"><img src="images/version/tech-footer-logo.png" alt="" class="img-fluid"></a>
+                        <a href="index.html"><img src="web\images\version\tech-footer-logo.png" alt="" class="img-fluid"></a>
                         <p>Tech Blog is a technology blog, we sharing marketing, news and gadget articles.</p>
                         <div class="social">
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
@@ -15,13 +15,6 @@
                         </div>
 
                         <hr class="invis">
-
-                        <div class="newsletter-widget text-left">
-                            <form class="form-inline">
-                                <input type="text" class="form-control" placeholder="Enter your email address">
-                                <button type="submit" class="btn btn-primary">SUBMIT</button>
-                            </form>
-                        </div><!-- end newsletter -->
                     </div><!-- end footer-text -->
                 </div><!-- end widget -->
             </div><!-- end col -->
