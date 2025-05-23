@@ -49,7 +49,7 @@ class WebController extends Controller
 
     public function category()
     {
-        $posts= Post::paginate(1);
+        $posts= Post::paginate(4);
         $categories= Category::all();
         return view('web.category', compact('posts','categories'));
     }
