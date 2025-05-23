@@ -22,14 +22,6 @@
                             <small>{{ $post->user->name }}</small>
                             <small><i class="fa fa-eye"></i> {{ $post->view_counts }}</small>
                         </div><!-- end meta -->
-
-                        <div class="post-sharing">
-                            <ul class="list-inline">
-                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div><!-- end post-sharing -->
                     </div><!-- end title -->
 
                     <div class="single-post-media">
@@ -45,23 +37,6 @@
                         </div><!-- end pp -->
                     </div><!-- end content -->
 
-                    <div class="blog-title-area">
-                        <div class="tag-cloud-single">
-                            <span>Tags</span>
-                            <small><a href="#" title="">lifestyle</a></small>
-                            <small><a href="#" title="">colorful</a></small>
-                            <small><a href="#" title="">trending</a></small>
-                            <small><a href="#" title="">another tag</a></small>
-                        </div><!-- end meta -->
-
-                        <div class="post-sharing">
-                            <ul class="list-inline">
-                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div><!-- end post-sharing -->
-                    </div><!-- end title -->
 
                     <hr class="invis1">
 
@@ -130,14 +105,6 @@
                 </div><!-- end page-wrapper -->
             </div><!-- end col -->
 
-            {{-- <form class="form-wrapper" method="post" action="{{ route('web.post.comment', $post->id) }}">
-                @csrf
-                <input type="text" class="form-control" placeholder="Your name">
-                <input type="text" class="form-control" placeholder="Email address">
-                <input type="text" class="form-control" placeholder="Website">
-                <textarea class="form-control" placeholder="Your comment"></textarea>
-                <button type="submit" class="btn btn-primary">Submit Comment</button>
-            </form> --}}
 
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="sidebar">
