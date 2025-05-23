@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <textarea id="content" name="content" class="ckeditor">{ !! $post->content !! }</textarea>
+                                <textarea id="content" name="content" class="ckeditor">{!! $post->content !!}</textarea>
                             </div>
                             <button type="submit" class="btn btn-default">Update</button>
                         </form>
