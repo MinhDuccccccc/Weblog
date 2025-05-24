@@ -46,13 +46,13 @@ class CategoryController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit($id) // được gọi khi ấn button edit
     {
         $category = Category::find($id);
         return view('admin.category.edit', compact('category'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) // được gọi khi ấn button update
     {
         $this->validate($request,
           [
