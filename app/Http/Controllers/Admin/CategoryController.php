@@ -33,7 +33,8 @@ class CategoryController extends Controller
           $checkSlug = Category::where('slug', $slug)-> first();
 
           while($checkSlug){
-              $slug = $checkSlug->slug . Str::random(2);
+              $slug = Str::slug($request->name) . '-' . Str::random(3); // thêm hậu tố
+              $checkSlug = Category::where('slug', $slug)->first(); // kiểm tra lại
           }
 
         Category::create([
