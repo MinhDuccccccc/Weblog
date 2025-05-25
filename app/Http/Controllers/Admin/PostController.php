@@ -33,8 +33,8 @@ class PostController extends Controller
         'category_id' => 'required',
       ]);
 
-    $slug = Str::slug($request->title);
-    $originalSlug = $slug;
+    $slug = Str::slug($request->title); //slug của title
+    $originalSlug = $slug; //lưu lại biến ban đầu, dùng nếu cần thêm hậu tố
 
     $checkSlug = Post::where('slug', $slug)->first();
 
@@ -45,10 +45,10 @@ class PostController extends Controller
 
     if ($request->hasFile('image')) {
       $file = $request->file('image');
-      $name_file = $file->getClientOriginalName();
+      $name_file = $file->getClientOriginalName();// là phương thức có sẵn của file
       $extension = $file->getClientOriginalExtension();
 
-      if (strcasecmp($extension, 'jpg') === 0 ||
+      if (strcasecmp($extension, 'jpg') === 0 || //so sánh chuỗi extension với jpg
           strcasecmp($extension, 'png') === 0 ||
           strcasecmp($extension, 'jepg') === 0) {
         $image = Str::random(5) . '_' . $name_file;

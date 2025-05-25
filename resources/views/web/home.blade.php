@@ -20,7 +20,7 @@
                                 <div class="blog-meta">
                                     <span class="bg-orange"><a href="{{ route ('web.category', $post->category->slug)}}">{{$post->category->name}}</a></span>
                                     <h4><a href="{{route('web.post', $post->slug)}}" title="">{{ $post -> title}}</a></h4>
-                                    <small>{{\Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}}</small>
+                                    <small>{{\Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}}</small> <!-- Dùng thư viện Carbon để phân tích (parse) chuỗi thời gian thành đối tượng ngày giờ -->
                                     <small>{{$post ->user->name}}</small>
                                 </div><!-- end meta -->
                             </div><!-- end shadow-desc -->
@@ -28,21 +28,7 @@
                     </div><!-- end post-media -->
                 </div><!-- end first-side -->
             @endforeach
-            {{-- <div class="second-slot">
-                <div class="masonry-box post-media">
-                     <img src="upload/tech_02.jpg" alt="" class="img-fluid">
-                     <div class="shadoweffect">
-                        <div class="shadow-desc">
-                            <div class="blog-meta">
-                                <span class="bg-orange"><a href="tech-category-01.html" title="">Gadgets</a></span>
-                                <h4><a href="tech-single.html" title="">Do not make mistakes when choosing web hosting</a></h4>
-                                <small><a href="tech-single.html" title="">03 July, 2017</a></small>
-                                <small><a href="tech-author.html" title="">by Jessica</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end shadow-desc -->
-                     </div><!-- end shadow -->
-                </div><!-- end post-media -->
-            </div><!-- end second-side -->
+
 
             <div class="last-slot">
                 <div class="masonry-box post-media">
@@ -99,20 +85,6 @@
 
                 <hr class="invis">
 
-                {{-- <div class="row">
-                    <div class="col-md-12">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-start">
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div><!-- end col -->
-                </div><!-- end row --> --}}
             </div><!-- end col -->
         </div><!-- end row -->
     </div><!-- end container -->
