@@ -52,28 +52,35 @@ class CategoryController extends Controller
         return view('admin.category.edit', compact('category'));
     }
 
-    public function update(Request $request, $id) // được gọi khi ấn button update
+    public function update(Request $request, $id)
     {
-        $this->validate($request,
-          [
-            'name'=>'required'
-          ]
-        );
+      $this->validate($request,
+      [
+        'name' => 'required'
+      ]);
 
-          $slug = Str::slug($request->name);
+      // Tạo slug từ tên
+      $slug = Str::slug($request->name);
 
-          $checkSlug = Category::where('slug', $slug)-> first();
+      // Kiểm tra xem slug có bị trùng với bản ghi khác không
+      $checkSlug = Category::where('slug', $slug)
+                          ->where('id', '!=', $id) // trừ chính nó ra
+                          ->first();
 
-          while($checkSlug){
-              $slug = $checkSlug->slug ."-". Str::random(2);
-          }
+      if ($checkSlug) {
+          // Nếu slug đã tồn tại, trả về với lỗi
+          return redirect()->back()
+                          ->withInput()
+                          ->withErrors(['name' => 'Tên này đã tồn tại, vui lòng nhập tên khác.']);
+      }
 
-          Category::where('id', $id)->update([
-            'name' => $request->name,
-            'slug' => $slug
-          ]);
+      // Nếu không trùng, thì update
+      Category::where('id', $id)->update([
+          'name' => $request->name,
+          'slug' => $slug
+      ]);
 
-        return redirect()-> route('admin.category.edit', $id)->with('success', 'update successfully');
+      return redirect()->route('admin.category.edit', $id)->with('success', 'Cập nhật thành công');
     }
 
     public function delete($id)
