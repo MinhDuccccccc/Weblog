@@ -22,28 +22,29 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-        [
-          'name'=>'required'
-        ]
-        );
-
-          $slug = Str::slug($request->name);
-
-          $checkSlug = Category::where('slug', $slug)-> first();
-
-          while($checkSlug){
-              $slug = Str::slug($request->name) . '-' . Str::random(3); // thêm hậu tố
-              $checkSlug = Category::where('slug', $slug)->first(); // kiểm tra lại
-          }
-
-        Category::create([
-          'name' => $request->name,
-          'slug' => $slug
+        // Kiểm tra name bắt buộc
+        $this->validate($request, [
+            'name' => 'required'
         ]);
 
-        return redirect()->route('admin.category.index')->with('success', 'create successfully');
+        // Tạo slug từ name
+        $slug = Str::slug($request->name);
 
+        // Kiểm tra trùng slug
+        $checkSlug = Category::where('slug', $slug)->first();
+        if ($checkSlug) {
+            return redirect()->back()
+              ->withInput()
+              ->withErrors(['name' => 'Tên này sau khi tạo slug đã bị trùng. Vui lòng chọn tên khác.']);
+        }
+
+        // Tạo category
+        Category::create([
+            'name' => $request->name,
+            'slug' => $slug
+        ]);
+
+        return redirect()->route('admin.category.index')->with('success', 'Tạo danh mục thành công');
     }
 
     public function edit($id) // được gọi khi ấn button edit
