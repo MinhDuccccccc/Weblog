@@ -49,7 +49,7 @@ class WebController extends Controller
 
     public function category()
     {
-        $posts= Post::paginate(4);
+        $posts= Post::paginate(4); //lấy danh sách post (mỗi trang 4 bài viết)
         $categories= Category::all();
         return view('web.category', compact('posts','categories'));
     }
