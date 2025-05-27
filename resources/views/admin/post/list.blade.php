@@ -39,7 +39,7 @@
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.post.edit', $post->id) }}">Edit</a></td>
                     </tr>
                     @endforeach
-                </tbody>
+                </tbody> 
             </table>
 
             {!! $posts->links() !!}

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; //Auth là một Facade của Laravel, đại diện cho hệ thống xác thực người dùng.
 use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Post;
