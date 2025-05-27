@@ -15,6 +15,19 @@
                             </div>
                         </div>
                         @endif
+
+                         {{-- Hiển thị lỗi nếu có --}}
+                        @if($errors->any())
+                            <div class="col-lg-12">
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        @endif
                         <div class="col-lg-5">
                             <h4>Who we are</h4>
                             <p>Tech Blog is a personal blog for handcrafted, cameramade photography content, fashion styles from independent creatives around the world.</p>

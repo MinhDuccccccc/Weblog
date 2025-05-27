@@ -65,9 +65,22 @@ class WebController extends Controller
     {
         return view('web.contact');
     }
+
     public function sendContact(Request $request)
     {
-        Contact::create($request->all());
+        // Bước 1: Validate dữ liệu
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'address' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:1000',
+        ]);
+
+        // Bước 2: Tạo contact nếu hợp lệ
+        Contact::create($validated);
+
+        // Bước 3: Chuyển hướng kèm thông báo thành công
         return redirect()->route('web.contact')->with('success', 'Created contact successfully');
     }
 }
