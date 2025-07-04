@@ -50,7 +50,7 @@ class PostController extends Controller
 
       if (strcasecmp($extension, 'jpg') === 0 || //so sánh chuỗi extension với jpg
           strcasecmp($extension, 'png') === 0 ||
-          strcasecmp($extension, 'jepg') === 0) {
+          strcasecmp($extension, 'jpeg') === 0) {
         $image = Str::random(5) . '_' . $name_file;
         while (file_exists('image/post/' . $image)) {
           $image = Str::random(5) . '_' . $name_file;
