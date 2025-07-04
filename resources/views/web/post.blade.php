@@ -87,21 +87,33 @@
                     </div><!-- end custom-box -->
 
                     <hr class="invis1">
-                    @if(\Illuminate\Support\Facades\Auth::check())
 
-                    <div class="custombox clearfix">
-                        <h4 class="small-title">Leave a Reply</h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <form class="form-wrapper" method="post" action="{{ route('web.post.comment', $post->id) }}">
-                                    @csrf
-                                    <textarea class="form-control" name="content" placeholder="Your comment"></textarea>
-                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
-                                </form>
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <div class="custombox clearfix">
+                            <h4 class="small-title">Leave a Reply</h4>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form class="form-wrapper" method="post" action="{{ route('web.post.comment', $post->id) }}">
+                                        @csrf
+                                        <textarea class="form-control" id="comment-content" name="content" placeholder="Your comment"></textarea>
+                                        <button type="submit" class="btn btn-primary mt-2" id="submit-comment" disabled>Submit Comment</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                const textarea = document.getElementById("comment-content");
+                                const submitBtn = document.getElementById("submit-comment");
+
+                                textarea.addEventListener("input", function () {
+                                    submitBtn.disabled = textarea.value.trim().length === 0;
+                                });
+                            });
+                        </script>
                     @endif
+
                 </div><!-- end page-wrapper -->
             </div><!-- end col -->
 
